@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% from "bootstrap/pagination.html" import render_pagination %}
+
+{% block page_body %}
+    <div class="container">
+    <h2>product list</h2>
+
+
+        <table class="table table-bordered table-hover" id="mytable">
+            <thead>
+                <tr>
+                    <th>产品ID</th>
+                    <th>名称</th>
+                    <th>价格</th>
+                    <th>重量</th>
+                    <th>规格</th>
+                    <th>剩余数目</th>
+                    <th>总销量</th>
+                    <th>入库日</th>
+                    <th>位置</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+
+            {% for goods in goodslist %}
+
+                <tr>
+
+                    <td>
+                        {{goods.product_id}}
+                    </td>
+                    <td>
+                        {{goods.name}}
+                    </td>
+                    <td>
+                        {{ goods.price }}
+                    </td>
+                    <td>
+                        {{ goods.weight }}
+                    </td>
+                    <td>
+                        {{ goods.norms }}
+                    </td>
+                    <td>
+                        {{ goods.residue_num }}
+                    </td>
+                    <td>
+                        {{ goods.sale_total }}
+                    </td>
+                    <td>
+                        {{ goods.storage_time }}
+                    </td>
+                    <td>
+                        {{ goods.storage_location }}
+                    </td>
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+{% endblock %}
+
+

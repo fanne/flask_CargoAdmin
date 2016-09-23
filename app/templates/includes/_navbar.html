@@ -1,0 +1,42 @@
+{% from "_formhelpers.html" import render_field %}
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button aria-controls="navbar"
+                    aria-expanded="false"
+                    class="navbar-toggle collapsed"
+                    data-target="#7bc75dbef69e41ff2452de70079c8ece1320ea7c"
+                    data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <span class="navbar-brand">货物存储系统</span>
+        </div>
+        <div class="navbar-collapse collapse"
+             id="7bc75dbef69e41ff2452de70079c8ece1320ea7c">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="{{ url_for('.index') }}" title="{{ ("主页") }}">{{ ("主页") }}</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <form class="navbar-form" action="{{url_for('app.search')}}" method="post" name="search">
+                    <div class="form-group">
+                        {{g.search_form.hidden_tag()}}
+                        {{g.search_form.search(size=20,class="form-control")}}
+                        <input class="btn btn-default" type="submit" value="Search">
+                    </div>
+                </form>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" >
+                <li>
+                    <a href="{{ url_for('admin.index') }}" title="{{ ("管理") }}">{{ ("管理") }}</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</nav>

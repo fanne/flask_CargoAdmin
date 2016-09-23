@@ -1,0 +1,33 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block head %}
+    {{ super() }}
+    {% include ['includes/_head.html', 'includes/_metas.html'] %}
+{% endblock %}
+{% block styles %}
+    {{ super() }}
+    <link href="{{ url_for('static',filename='bootstrap.min.css',_external=True) }}" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block navbar %}
+    {% include 'includes/_navbar.html' %}
+{% endblock %}
+
+{% block content %}
+    {% block header %}
+        <header>
+            <div class="page-header">
+                <div class="container">
+                    <h1>{{ title }}</h1>
+                </div>
+            </div>
+        </header>
+    {% endblock %}
+    {% block page_body %}
+    {% endblock %}
+{% endblock %}
+{% block footer %}
+    <footer>
+        Copyright 2016 by QQ
+    </footer>
+{% endblock %}
+

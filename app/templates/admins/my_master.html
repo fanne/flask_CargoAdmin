@@ -1,0 +1,21 @@
+{% extends 'admin/base.html' %}
+{% block body %}
+{{ super() }}
+<h1>Cargo System</h1>
+<p>This is the backend of CleanBlog. </p>
+<p>You can operate all posts here</p>
+<h3><a href="{{ url_for('app.index') }}">返回主页</a></h3>
+{% endblock body %}
+
+{% block access_control %}
+{% if current_user.is_authenticated %}
+<div class="btn-group pull-right">
+    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="icon-user"></i> {{ current_user.login }} <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+        <li><a href="{{ url_for('admin.logout_view') }}">Log out</a></li>
+    </ul>
+</div>
+{% endif %}
+{% endblock %}
